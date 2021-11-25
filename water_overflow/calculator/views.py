@@ -21,7 +21,9 @@ def get_content(request):
             try:
                 glasses = WaterOverflow.get_content(liquid_volume_input)
                 liquid_level = glasses[row][pos].content
+                illustration = [" ".join(e) for e in WaterOverflow.illustrate(glasses)]
                 context["success_message"] = f"The liquid volume of glass in row {row} at position {pos} is {liquid_level} mL when {liquid_volume_input} L of liquid is poured."
+                context["illustration"] = illustration
             except Exception:
                 context["error_message"] = f"The glass in row: {row} and position: {pos} is EMPTY when {liquid_volume_input} L of liquid is poured."
 

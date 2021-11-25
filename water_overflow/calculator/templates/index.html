@@ -9,30 +9,31 @@
 
     <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Water Overflow Calculator</title>
+    <title>Water Overflow Calculator and Illustrator</title>
 </head>
 
-<body style="overflow:hidden">
+<body>
     <div id="jumbotron" class="jumbotron" style="text-align: center; margin-top:-50px">
-        <h5>Water Overflow Calculator</h5>
+        <h5>Water Overflow Calculator and Illustrator</h5>
         <img src="{% static 'images/water-overflow.jpg' %}" class="image" style="width:100px; margin-bottom:-50px; ">
     </div>
     <div class="container">
         {% if error_message is not None %}
         <div class="alert alert-danger">
-            <button type="button" class="close" data-dismiss="alert">
-                <i class="material-icons">close</i>
-            </button>
             <span>
-                <b> {{ error_message }}</span>
+                <b> {{ error_message }}
+            </span>
         </div>
         {% endif %}
         {% if success_message is not None %}
         <div class="alert alert-success">
-            <button type="button" class="close" data-dismiss="alert">
-            </button>
             <span>
-                <b> {{ success_message }}</span>
+                <b> {{ success_message }}
+                <div style="margin-top: 10px;"> ILLUSTRATION: </div>
+                {% for e in illustration %}
+                <pre style="margin: 0%;"> {{ e }} </pre>
+                {% endfor %}
+            </span>
         </div>
         {% endif %}
         <form method="POST" action="get-content"> {% csrf_token %}
@@ -40,7 +41,7 @@
                 <div class="col-md-12">
                     <div class="form-group">
                         <label class="bmd-label-floating">Liquid Volume Input (Liters)</label>
-                        <input type="number" min="1" class="form-control" name="liquid_volume" step="0.1">
+                        <input type="number" min="1" class="form-control" name="liquid_volume" step="0.01">
                     </div>
                 </div>
             </div>

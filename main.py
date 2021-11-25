@@ -18,10 +18,13 @@ if __name__ == '__main__':
                 glasses = WaterOverflow.get_content(liquid_input)
                 liquid_level = glasses[row][pos].content
                 print(
-                    f"The liquid volume of glass in row {row} at position {pos} is {liquid_level} mL when {liquid_input} L of liquid is poured.")
-            except Exception:
+                    f"The liquid volume of glass in row {row} at position {pos} is {liquid_level} mL when {liquid_input} L of liquid is poured. \n\nILLUSTRATION:")
+                
+                # Illustration
+                print("\n".join(["".join(e) for e in WaterOverflow.illustrate(glasses)]))
+            except Exception as err:
                 print(
-                    f"The glass in row: {row} and position: {pos} is EMPTY when {liquid_input} L of liquid is poured.")
+                    f"The glass in row: {row} and position: {pos} is EMPTY when {liquid_input} L of liquid is poured. {err}")
 
     except Exception:
         print("Please be sure to provide the three arguments needed.")

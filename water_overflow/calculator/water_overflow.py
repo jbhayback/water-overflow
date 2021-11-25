@@ -36,3 +36,17 @@ class WaterOverflow:
             row += 1
 
         return glasses
+
+    @staticmethod
+    def illustrate(glasses):
+        result = list()
+        row_reverse = len(glasses) - 1
+        for row in glasses:
+            row_glasses = []
+            for glass in row:
+                row_glasses.append(str(glass))
+            layer = "{0:^2}".format(" ")*row_reverse, "".join(row_glasses)
+            result.append(layer)
+            row_reverse -= 1
+
+        return result
