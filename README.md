@@ -36,7 +36,7 @@ This project is a simple application for calculating and illustrating how much l
 
 
 ## __Technical Design Document (TDD)__
- ![tdd-diagram](https://github.com/jbhayback/water-overflow/blob/main/water_overflow/converter/static/images/TDD_WO.png)
+ ![tdd-diagram](https://github.com/jbhayback/water-overflow/blob/main/water_overflow/calculator/static/images/TDD_WO.png)
  - The flow of the application is shown in the diagram above.
  - On the client side, user shall set the input data needed by the application for water overflow calculation.
  - The server will then validate the input data.
@@ -111,14 +111,14 @@ This project is a simple application for calculating and illustrating how much l
         * http://localhost:8000/ - if local webapp using Django setup
         * http://localhost:8001/ - if docker and docker-compose webapp setup
             - Sample Images:
-                - ![django-sample](https://github.com/jbhayback/water-overflow/blob/main/water_overflow/converter/static/images/functional_test_using_django.jpg)
+                - ![django-sample](https://github.com/jbhayback/water-overflow/blob/main/water_overflow/calculator/static/images/functional_test_using_django.jpg)
     - For local CLI, you can perform this command: python main.py {liquid_volume_input} {row} {position}
         - example:
         ```
         $ python main.py 3 1 1
         ```
         - Sample image
-            - ![cli-sample](https://github.com/jbhayback/water-overflow/blob/main/water_overflow/converter/static/images/functional_test_using_cli.jpg)
+            - ![cli-sample](https://github.com/jbhayback/water-overflow/blob/main/water_overflow/calculator/static/images/functional_test_using_cli.jpg)
 
  ## Contact
 - You can contact me via email: jbhayback@gmail.com for more info or if there are errors during the setup.
