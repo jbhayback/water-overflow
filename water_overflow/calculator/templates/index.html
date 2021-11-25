@@ -1,0 +1,69 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Water Overflow Calculator</title>
+</head>
+
+<body style="overflow:hidden">
+    <div id="jumbotron" class="jumbotron" style="text-align: center; margin-top:-50px">
+        <h5>Water Overflow Calculator</h5>
+        <img src="{% static 'images/water-overflow.jpg' %}" class="image" style="width:100px; margin-bottom:-50px; ">
+    </div>
+    <div class="container">
+        {% if error_message is not None %}
+        <div class="alert alert-danger">
+            <button type="button" class="close" data-dismiss="alert">
+                <i class="material-icons">close</i>
+            </button>
+            <span>
+                <b> {{ error_message }}</span>
+        </div>
+        {% endif %}
+        {% if success_message is not None %}
+        <div class="alert alert-success">
+            <button type="button" class="close" data-dismiss="alert">
+            </button>
+            <span>
+                <b> {{ success_message }}</span>
+        </div>
+        {% endif %}
+        <form method="POST" action="get-content"> {% csrf_token %}
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label class="bmd-label-floating">Liquid Volume Input (Liters)</label>
+                        <input type="number" min="1" class="form-control" name="liquid_volume" step="0.1">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label class="bmd-label-floating">Row</label>
+                        <input type="number" min="0" class="form-control" name="row">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label class="bmd-label-floating">Position</label>
+                        <input type="number" min="0" class="form-control" name="position">
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-info pull-right">Calculate</button>
+            <div class="clearfix"></div>
+        </form>
+    </div>
+</body>
+
+</html>
