@@ -1,0 +1,16 @@
+version: '3'
+services:
+  web:
+    build:
+      context: .
+      args:
+        REQUIREMENTS_FILE: requirements.txt
+    restart: always
+    ports:
+      - 8001:8000
+    command: 'sh -c "python ./water_overflow/manage.py migrate &&  python ./water_overflow/manage.py runserver 0.0.0.0:8000"'
+    volumes:
+      - ./:/app
+
+volumes:
+  db-data:
