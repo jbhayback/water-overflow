@@ -25,6 +25,9 @@ def get_content(request):
                 context["success_message"] = f"The liquid volume of glass in row {row} at position {pos} is {liquid_level} mL when {liquid_volume_input} L of liquid is poured."
                 context["illustration"] = illustration
             except Exception:
-                context["error_message"] = f"The glass in row: {row} and position: {pos} is EMPTY when {liquid_volume_input} L of liquid is poured."
+                if pos > row:
+                    context["error_message"] = f"The glass in row: {row} and position: {pos} is an invalid location in the stacks."
+                else:
+                    context["error_message"] = f"The glass in row: {row} and position: {pos} is EMPTY when {liquid_volume_input} L of liquid is poured."
 
     return render(request, template, context)
