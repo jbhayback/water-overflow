@@ -102,7 +102,7 @@ This project is a simple application for calculating and illustrating how much l
   - For the succeeding rows (2nd and beyond), the liquid will also overflow to the part where the upper layer glass is mounted.
   - Constraints:
     - 0.00 < __K__(input liquid volume) <= 1000.00 (K can handle up to hundredths decimal place with increment of 0.01)
-    - 0 <= (__J__)Position <= Row(__i__) - Non-negative integers only
+    - 0 <= __J__(Position) <= __i__(Row) - Non-negative integers only
 
 
 - ## Testing
