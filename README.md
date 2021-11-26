@@ -1,4 +1,4 @@
-# water-overflow Calculator
+# water-overflow Calculator and Illustrator
 
 <!-- TABLE OF CONTENTS -->
 <details open="open">
@@ -18,6 +18,7 @@
         <li><a href="#setup">Setup</a></li>
       </ul>
     </li>
+    <li><a href="#assumptions-and-constraints">Testing</a></li>
     <li><a href="#testing">Testing</a></li>
     <li><a href="#contact">Contact</a></li>
   </ol>
@@ -26,9 +27,9 @@
 
 ## __About The Project__
 
-**Water Overflow Calculator**
+**Water Overflow Calculator and Illustrator**
 
-This project is a simple application for calculating and illustrating how much liquid is in the glass/container given its position when K liters of liquid is poured in the top most glass.
+This project is a simple application for calculating and illustrating how much liquid is in the glass/container given its position when K liters of liquid is poured in the top most glass. There is a stack of water glasses in a form of triangle. Each glass has a 250mL capacity. When a liquid is poured into the top most glass any overflow is evenly distributed between the glasses in the next row. That is, half of the overflow pours into the left glass while the remainder of the overflow pours into the right glass.
 
 ## Built With
 * [Django](https://www.djangoproject.com/) - Web
@@ -40,28 +41,34 @@ This project is a simple application for calculating and illustrating how much l
  - The flow of the application is shown in the diagram above.
  - On the client side, user shall set the input data needed by the application for water overflow calculation.
  - The server will then validate the input data.
- - If the input data are valid based on the requirements, the calculation overflow content of the specified position of the glass/container will be displayed. Other wise, an error message will be returned.
+ - If the input data are valid based on the requirements, the calculation overflow content of the specified position of the glass/container will be displayed as well as the graphical illustration. Otherwise, an error message will be returned.
+
 
 ## __Getting Started__
 - ## Prerequisites
+  - Local
+    * [Python](https://www.python.org/download/releases/3.0/) - at least 3.x.x
+    * [Django](https://www.djangoproject.com/)
+    * [Pytest](https://pypi.org/project/pytest/)
   - Docker and Docker Compose
     * [Docker](https://www.docker.com/)
       * [Installation](https://docs.docker.com/engine/install/)
     * [Docker compose](https://docs.docker.com/compose/)
       * [Installation](https://docs.docker.com/compose/install/)
 
-- ## Setup (__Be sure to run these commands inside the project root directory__)
+- ## Setup
+    - __IMPORTANT NOTE: Be sure to run these commands within the project root directory.__
     - ### __Local CLI__
-        - Create virtual env and activate it.
+        - Create any python virtual env and activate it.
         - Install required packages
         ```
-        $ pip install -r requirements/requirements.txt
+        $ pip install -r requirements/local_cli_setup_requirements.txt
         ```
-        - You can immediately perform the functional testing.
+        - You can then proceed to functional testing.
         
     - ### __Local WebApp using Django__
-        - Create virtual env and activate it.
-        - Install required packages
+        - Create any python virtual env and activate it.
+        - Install required packages.
         ```
         $ pip install -r requirements/requirements.txt
         ```
@@ -69,7 +76,7 @@ This project is a simple application for calculating and illustrating how much l
         ```
         $ python ./water_overflow/manage.py migrate
         ```
-        - Run server
+        - Run webserver.
         ```
         $ python ./water_overflow/manage.py runserver
         ```
@@ -91,7 +98,14 @@ This project is a simple application for calculating and illustrating how much l
         http://localhost:8001/
         ```
 
- ## Testing
+- ## Assumptions and Constraints
+  - For the succeeding rows (2nd and beyond), the liquid will also overflow to the part where the upper layer glass is mounted.
+  - Constraints:
+    - 0.00 < __K__(input liquid volume) <= 1000.00 (K can handle up to hundredths decimal place with increment of 0.01)
+    - 0 <= (__J__)Position <= Row(__i__) - Non-negative integers only
+
+
+- ## Testing
  - ### Unit Testing
     - Local CLI
     ```
