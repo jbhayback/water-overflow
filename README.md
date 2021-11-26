@@ -18,7 +18,7 @@
         <li><a href="#setup">Setup</a></li>
       </ul>
     </li>
-    <li><a href="#assumptions-and-constraints">Testing</a></li>
+    <li><a href="#assumptions-and-constraints">Assumptions and Constraints</a></li>
     <li><a href="#testing">Testing</a></li>
     <li><a href="#contact">Contact</a></li>
   </ol>
